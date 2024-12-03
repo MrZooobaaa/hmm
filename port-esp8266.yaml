@@ -1,0 +1,56 @@
+esphome:
+  name: port-esp8266
+  friendly_name: port-esp8266
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "SpU8qtbvmCxcbCPWNDutYinoJkeIa7Zy5hPhEC8s1R8="
+
+ota:
+  - platform: esphome
+    password: "cf79605484f0fb24984778fab192795b"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Port-Esp8266 Fallback Hotspot"
+    password: "CU2soFqndSvY"
+
+captive_portal:
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+binary_sensor:
+  - platform: gpio
+    device_class: door
+    pin:
+      number: GPIO16
+      inverted: False
+    name: "Port status"
+
+
+switch:
+  - platform: gpio
+    pin: GPIO5
+    id: relay
+    name: "Port"
+    icon: "mdi:gate"
+#    on_turn_on:
+#    - delay: 500ms
+#    - switch.turn_off: relay
+
+
+  - platform: restart
+    name: "Genstart port esp8266"
