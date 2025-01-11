@@ -13,11 +13,11 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "WOPkGzhXeXCL7z+IRO5/Kz0Sk48tjMKSr/jWDPDPI0Y="
+    key: ""
 
 ota:
   - platform: esphome
-    password: "a935611cbbe3e1cc775fb8f4abdc29ee"
+    password: ""
 
 wifi:
   ssid: !secret wifi_ssid
@@ -26,7 +26,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Port-Esp32 Fallback Hotspot"
-    password: "44zKUbExqCk5"
+    password: ""
 
 i2c:
   sda: 21
@@ -82,7 +82,6 @@ sensor:
     name: Kantliste modstand åben
     reference_voltage: 3.3
 
-
 binary_sensor:
   - platform: gpio
     device_class: door
@@ -134,7 +133,6 @@ binary_sensor:
         return false;
       }
 
-
 switch:
   - platform: gpio
     pin: 
@@ -142,7 +140,6 @@ switch:
       inverted: True
     name: "Port åben"
     icon: "mdi:gate"
-
 
   - platform: restart
     name: "Genstart port esp32"
