@@ -11,11 +11,11 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "SpU8qtbvmCxcbCPWNDutYinoJkeIa7Zy5hPhEC8s1R8="
+    key: ""
 
 ota:
   - platform: esphome
-    password: "cf79605484f0fb24984778fab192795b"
+    password: ""
 
 wifi:
   ssid: !secret wifi_ssid
@@ -24,7 +24,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Port-Esp8266 Fallback Hotspot"
-    password: "CU2soFqndSvY"
+    password: ""
 
 captive_portal:
 
@@ -40,7 +40,6 @@ binary_sensor:
       inverted: False
     name: "Port status"
 
-
 switch:
   - platform: gpio
     pin: GPIO5
@@ -50,7 +49,6 @@ switch:
 #    on_turn_on:
 #    - delay: 500ms
 #    - switch.turn_off: relay
-
 
   - platform: restart
     name: "Genstart port esp8266"
