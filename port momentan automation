@@ -1,0 +1,38 @@
+alias: port momentan
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - input_boolean.port
+    from: "off"
+    to: "on"
+conditions:
+  - condition: state
+    entity_id: switch.port_esp32_port_ben
+    state: "off"
+    enabled: true
+actions:
+  - action: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+        - switch.port_esp32_port_ben
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+        - switch.port_esp32_port_ben
+  - action: input_boolean.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: input_boolean.port
+mode: single
+

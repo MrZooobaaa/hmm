@@ -1,0 +1,66 @@
+  - type: sections
+    max_columns: 2
+    title: Port
+    path: port
+    icon: mdi:gate
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            icon: ''
+            heading: Åbne signaler
+            heading_style: subtitle
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: input_boolean.port
+            show_state: true
+            grid_options:
+              columns: 6
+              rows: 3
+            name: Port
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: switch.port_esp32_port_ben
+            name: Port fast åben
+            show_state: true
+            grid_options:
+              columns: 6
+              rows: 3
+      - type: grid
+        cards:
+          - type: heading
+            heading: Inputs
+            heading_style: subtitle
+          - type: tile
+            entity: binary_sensor.port_esp32_open_signal_input
+            name: Åbne signal
+          - type: tile
+            entity: binary_sensor.port_esp32_port_status
+            show_entity_picture: false
+            vertical: false
+            name: Port status
+            hide_state: false
+          - type: tile
+            entity: binary_sensor.port_esp32_fotocelle
+            name: Fotocelle
+          - type: tile
+            entity: binary_sensor.port_esp32_n_dstop
+            name: Nødstop
+          - type: tile
+            entity: binary_sensor.port_esp32_kantliste_tilstand_luk
+            name: Kantliste luk
+          - type: tile
+            entity: sensor.port_esp32_kantliste_modstand_luk
+            name: Kantliste modstand luk
+          - type: tile
+            entity: binary_sensor.port_esp32_kantliste_tilstand_ben
+            name: Kantliste åben
+          - type: tile
+            entity: sensor.port_esp32_kantliste_modstand_ben
+            name: Kantliste modstand åben

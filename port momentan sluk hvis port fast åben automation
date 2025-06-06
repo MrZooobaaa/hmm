@@ -1,0 +1,21 @@
+alias: port momentan sluk hvis port fast åben
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - input_boolean.port
+    from: "off"
+    to: "on"
+conditions:
+  - condition: state
+    entity_id: switch.port_esp32_port_ben
+    state: "on"
+    enabled: true
+actions:
+  - action: input_boolean.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: input_boolean.port
+mode: single
+
