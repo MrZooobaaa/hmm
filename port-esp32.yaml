@@ -142,8 +142,8 @@ binary_sensor:
 switch:
   - platform: gpio
     pin: 
-      number: 2
-      inverted: True
+      number: 13
+      inverted: False
     name: "Port åben"
     icon: "mdi:gate"
 
